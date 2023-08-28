@@ -1,0 +1,35 @@
+ALGORITHM distinct
+VAR
+  set1,set2: : ARRAY_OF integer[20];
+  sum:integer:=0;
+  found:BOOLEAN
+BEGIN
+  FOR i FROM 0 TO set1.length - 1 STEP step  DO
+    found:=false
+    FOR j FROM 0 TO set2.length - 1 STEP step  DO
+     IF (set1[i]=set2[j]) THEN
+      found:= true;
+      Break;
+     END_IF
+    END_FOR
+IF (found == false) THEN
+ sum :=sum +set1[i]
+END_IF
+  END_FOR
+//second set
+  FOR i FROM 0 TO set2.length - 1 STEP step  DO
+    found:=false
+    FOR j FROM 0 TO set1.length - 1 STEP step  DO
+     IF (set1[j]=set2[i]) THEN
+      found:= true;
+      Break;
+     END_IF
+    END_FOR
+IF (found == false) THEN
+ sum :=sum +set2[i]
+END_IF
+  END_FOR
+
+write (sum)
+
+END 
